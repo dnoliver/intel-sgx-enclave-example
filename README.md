@@ -41,6 +41,8 @@ systemctl status aesmd.service
              └─12478 /opt/intel/sgx-aesm-service/aesm/aesm_service
 ```
 
+`docker` run arguments:
+
 ```shell
 docker run \
     --rm \
