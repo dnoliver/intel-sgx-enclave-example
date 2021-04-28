@@ -4,7 +4,7 @@ main: main.c
 	gcc -o main main.c
 
 # Build Variables
-INTEL_SGX_SDK_PATH="/root/sgx/sgxsdk"
+INTEL_SGX_SDK_PATH ?= "/opt/intel/sgxsdk"
 
 # Enclave App Build: Trusted Part
 
