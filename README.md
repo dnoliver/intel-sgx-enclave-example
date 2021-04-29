@@ -50,3 +50,17 @@ docker run \
     --volume /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket \
     sgx
 ```
+
+## Simulator
+
+Build in "Simulator" mode:
+
+```shell
+docker build -t sgx-simulator --build-arg SGX_MODE=Simulator .
+```
+
+Run in "Simulator" mode:
+
+```shell
+docker run sgx-simulator
+```

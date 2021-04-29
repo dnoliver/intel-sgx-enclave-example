@@ -15,6 +15,10 @@ COPY . /root
 
 WORKDIR /root
 
-RUN make app enclave.signed.so
+ENV LD_LIBRARY_PATH=/opt/intel/sgxsdk/sdk_libs
+
+ARG SGX_MODE=Hardware
+
+RUN make app enclave.signed.so SGX_MODE=$SGX_MODE
 
 CMD ./app

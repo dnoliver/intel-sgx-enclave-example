@@ -4,4 +4,6 @@ services:
   - docker
 
 script:
-- docker build .
+- docker build -t sgx .
+- docker build -t sgx-simulator --build-arg SGX_MODE=Simulator .
+- docker run sgx-simulator
