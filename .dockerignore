@@ -1,0 +1,8 @@
+app
+main
+enclave.pem
+enclave_t.*
+enclave_u.*
+*.o
+*.so
+.vscode
