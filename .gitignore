@@ -6,3 +6,4 @@ enclave_u.*
 *.o
 *.so
 .vscode
+.bash_history
