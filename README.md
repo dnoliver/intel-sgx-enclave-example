@@ -13,17 +13,17 @@ docker build -t sgx .
 ```shell
 modinfo isgx
 
-filename:       /lib/modules/5.8.0-50-generic/kernel/drivers/intel/sgx/isgx.ko
+filename:       /lib/modules/5.9.0-050900-generic/kernel/drivers/intel/sgx/isgx.ko
 license:        Dual BSD/GPL
 version:        2.11.0
 author:         Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
 description:    Intel SGX Driver
 srcversion:     79ECED088645D8685839503
 alias:          acpi*:INT0E0C:*
-depends:
+depends:        
 retpoline:      Y
 name:           isgx
-vermagic:       5.8.0-50-generic SMP mod_unload modversions
+vermagic:       5.9.0-050900-generic SMP mod_unload
 ```
 
 `aesmd` service should be running:
@@ -63,4 +63,19 @@ Run in "Simulator" mode:
 
 ```shell
 docker run sgx-simulator
+```
+
+## Interactive
+
+Run interactively for development:
+
+```shell
+docker run \
+    --rm \
+    -ti \
+    --device /dev/isgx \
+    --volume /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket \
+    --volume $(pwd):/root \
+    sgx \
+    bash
 ```
